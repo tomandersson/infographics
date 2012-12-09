@@ -7,7 +7,7 @@ var express = require('express'),
     user = require('./routes/user'),
     http = require('http'),
     path = require('path'),
-    dataController = require('./controllers/DataController').DataController;
+    dataController = require('./controllers/dataController');
 
 var app = express();
 

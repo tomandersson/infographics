@@ -7,59 +7,47 @@
 
 var GDrive = require("../lib/gdrive").GDrive;
 
-exports.DataController = (function () {
-    var endpoints = {},
-        data;
+var endpoints = {},
+    data;
 
-    function createEndpoint(config) {
-        if (config.name && config.key && config.type === "gdrive") {
-            endpoints[config.name] = new GDrive(config.key);
+function _getDataForEndpoints() {
+    var item,
+        curr,
+        successHandler,
+        errorHandler = function () {};
 
-            _getDataForEndpoints();
+    for (item in endpoints) {
+        if (endpoints.hasOwnProperty(item)) {
+            curr = endpoints[item];
+
+            successHandler = function (data) {
+                console.log("Got data for item '" + item + "': " + data);
+                data[item] = JSON.parse(data);
+            };
+
+            curr.get(successHandler, errorHandler);
         }
     }
+}
 
-    function getData(name) {
-        if (!data[name]) {
-            throw "No data for name '" + name + "'";
-        }
+exports.createEndpoint = function (config) {
+    if (config.name && config.key && config.type === "gdrive") {
+        endpoints[config.name] = new GDrive(config.key);
 
-        return data[name];
+        _getDataForEndpoints();
+    }
+};
+
+exports.getData = function (name) {
+    if (!data[name]) {
+        throw "No data for name '" + name + "'";
     }
 
-    function _successHandler(item, resData) {
-        data[item] = resData;
-    }
+    return data[name];
+};
 
-    function _getDataForEndpoints() {
-        var item,
-            curr,
-            successHandler,
-            errorHandler = function () {};
+exports.hasEndpoint = function (name) {
+    return endpoints[name] !== undefined;
+};
 
-        for (item in endpoints) {
-            if (endpoints.hasOwnProperty(item)) {
-                curr = endpoints[item];
-
-                successHandler = function (data) {
-                    console.log("Got data for item '" + item + "': " + data);
-                    data[item] = JSON.parse(data);
-                };
-
-                curr.get(successHandler, errorHandler);
-            }
-        }
-    }
-
-    function hasEndpoint(name) {
-        return endpoints[name] !== undefined;
-    }
-
-    setInterval(_getDataForEndpoints, 30000);
-
-    return {
-        "getData": getData,
-        "createEndpoint": createEndpoint,
-        "hasEndpoint": hasEndpoint
-    };
-}());
+setInterval(_getDataForEndpoints, 30000);
