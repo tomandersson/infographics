@@ -1,6 +1,6 @@
 
 /*
- * GET home page.
+ * GET home page. test
  */
 
 exports.index = function(req, res){
