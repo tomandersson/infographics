@@ -9,11 +9,11 @@ var GDrive  = require('../lib/gdrive').GDrive,
     lodash  = require('lodash');
 
 var endpoints = {},
-    data;
+    globalData = {};
 
 function _successHandler(item, data) {
     console.log("Got data for item '" + item + "': " + data);
-    data[item] = JSON.parse(data);
+    globalData[item] = JSON.parse(data);
 }
 
 function _getDataForEndpoints() {
@@ -38,11 +38,11 @@ exports.createEndpoint = function (config) {
 };
 
 exports.getData = function (name) {
-    if (!data[name]) {
+    if (!globalData[name]) {
         throw "No data for name '" + name + "'";
     }
 
-    return data[name];
+    return globalData[name];
 };
 
 exports.hasEndpoint = function (name) {
