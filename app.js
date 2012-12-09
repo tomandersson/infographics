@@ -7,7 +7,9 @@ var express = require('express'),
     user = require('./routes/user'),
     http = require('http'),
     path = require('path'),
-    dataController = require('./controllers/dataController');
+    dataController = require('./controllers/dataController'),
+    configReader = require('./lib/configReader');
+
 
 var app = express();
 
@@ -33,5 +35,6 @@ app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function () {
     dataController.createEndpoint({'name': 'spreadsheet', 'key': '0AscBOMDjzocpdFVhSUtDLXl3cmJLODQ2d2hlYkVVWVE', 'type': 'gdrive'});
+    setInterval(configReader.readFiles, 30000, './config');
     console.log("Express server listening on port " + app.get('port'));
 });
