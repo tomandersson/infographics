@@ -31,7 +31,7 @@ function _getDataForEndpoints() {
 
 exports.createEndpoint = function (config) {
     if (config.name && config.key && config.type === "gdrive") {
-        endpoints[config.name] = new GDrive(config.key, config.sheetIndex);
+        endpoints[config.name] = new GDrive(config);
 
         _getDataForEndpoints();
     }
