@@ -11,9 +11,9 @@ var GDrive  = require('../lib/gdrive').GDrive,
 var endpoints = {},
     globalData = {};
 
-function _successHandler(item, data) {
-    console.log("Got data for item '" + item + "': " + data);
-    globalData[item] = JSON.parse(data);
+function _successHandler(item, dataset) {
+    console.log("Got data for item '" + item + "': " + dataset);
+    globalData[item] = dataset;
 }
 
 function _getDataForEndpoints() {
@@ -31,7 +31,7 @@ function _getDataForEndpoints() {
 
 exports.createEndpoint = function (config) {
     if (config.name && config.key && config.type === "gdrive") {
-        endpoints[config.name] = new GDrive(config.key);
+        endpoints[config.name] = new GDrive(config.key, config.sheetIndex);
 
         _getDataForEndpoints();
     }
@@ -49,4 +49,4 @@ exports.hasEndpoint = function (name) {
     return endpoints[name] !== undefined;
 };
 
-setInterval(_getDataForEndpoints, 10000);
+setInterval(_getDataForEndpoints, 30000);

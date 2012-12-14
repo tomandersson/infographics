@@ -31,7 +31,13 @@ app.configure('development', function () {
 app.get('/', routes.index);
 app.get('/users', user.list);
 
+
 http.createServer(app).listen(app.get('port'), function () {
-    dataController.createEndpoint({'name': 'spreadsheet', 'key': '0AscBOMDjzocpdFVhSUtDLXl3cmJLODQ2d2hlYkVVWVE', 'type': 'gdrive'});
+    dataController.createEndpoint({'name': 'spreadsheet', 'key': '0Ar-SRfK6xubBdDhtd3c0YUVzZE43RWlmdFAzNF94eGc', 'type': 'gdrive', 'sheetIndex': 1});
+    app.get('/doc', function (req, res) {
+        console.log("Got request for doc");
+        res.setHeader('contentType', 'application/json');
+        res.send(dataController.getData('spreadsheet'));
+    });
     console.log("Express server listening on port " + app.get('port'));
 });
