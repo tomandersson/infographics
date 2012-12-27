@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Pragma" content="no-cache">
+
+		<!-- Viewport  -->
+		<meta name="viewport" content="width=device-width; initial-scale=1; user-scalable=yes"/>
+    
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link href="img/favicon.ico" rel="shortcut icon" type="image/ico">
+
+		<!-- Stylesheets  -->
+		<link rel="stylesheet" type="text/css" href="css/sde/SDE_Legend.css" />
+		<link rel="stylesheet" type="text/css" href="css/sde/SDE_Switch.css" />
+		<link rel="stylesheet" type="text/css" href="css/sde/SDE_Scrollbar.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+
+		<!-- Script  -->
+		<!-- Libs  -->
+		<script type="text/javascript" src="js/lib/jquery-1.7.min.js"></script>
+		<script type="text/javascript" src="js/lib/jquery-ui-1.8.22.custom.min.js"></script>
+		<script type="text/javascript" src="js/lib/knockout-2.1.0.js"></script>
+		<script type="text/javascript" src="js/lib/miso.ds.deps.min.0.2.1.js"></script>
+
+		<!-- SDE  -->
+		<script type="text/javascript" src="js/sde/SDE_EventTarget.js"></script>
+		<script type="text/javascript" src="js/sde/SDE_Switch.js"></script>
+		<script type="text/javascript" src="js/sde/SDE_Legend.js"></script>
+		<script type="text/javascript" src="js/sde/SDE_Tracking.js"></script>
+		<script type="text/javascript" src="js/sde/SDE_Scrollbar.js"></script>
+
+		<!-- Custom  -->
+		<script type="text/javascript" src="js/config.js"></script>
+		<script type="text/javascript" src="js/dataManager.js"></script>
+		<script type="text/javascript" src="js/viewModel.js"></script>
+		<script type="text/javascript" src="js/dataModel.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+
+		<title>Merkels engster Machtzirkel</title>
+	</head>
+	<body>
+
+		<div id="infografics">
+			<div id="header">
+				<h1 data-bind="html:headline"></h1>
+			</div>
+			<div id="navi">
+			  
+			</div>
+			<div id="content">
+				<!-- ko foreach: candidates -->
+				<div class="candidate noiPadHighlight" data-bind="attr: { id: id }, style: {  backgroundImage: image }, click:$root.candiateClick">
+					<div class="candidateImage noiPadHighlight" data-bind="style: {  backgroundImage: imageIcon , left: posX, top: posY }"></div>
+
+					<div class="counselors" >
+						<!-- ko foreach: counselors -->
+						<div class="counselor noiPadHighlight" data-bind="attr: { id: id }, style: {  left: posX, top: posY }, click:$root.iconClick">
+							<div class="counselorImage top">
+								<div  class="counselorImageBox" data-bind="style: {  backgroundImage: imageIcon }"></div>
+							</div>
+							<div  class="counselorText bottom">
+								<div class="counselorTextBox bottom ">
+									<p>
+										<strong data-bind="html: name"></strong>
+										<br />
+										<em data-bind="html: department">Quelle</em>
+									</p>
+								</div>
+							</div>
+						</div>
+						<!-- /ko -->
+					</div>
+				</div>
+				<!-- /ko -->
+ 
+				<div id="info">
+					<div class="contentImage" data-bind="style: {  backgroundImage: image }" ></div>
+					<h2 id="heading" data-bind="html:text_headline"></h2>
+					<p id="text" data-bind="html:text"></p>
+					<div class="clear"></div>
+				</div>
+
+			</div>
+		</div>
+		</div>
+
+		<div id="loadingScreen"></div>
+		<div id="orientationlock"></div>
+
+	</body>
+</html>

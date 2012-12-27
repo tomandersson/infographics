@@ -1,0 +1,218 @@
+/* Orientierung Start */
+
+#orientationlock {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 1024px;
+	height: 100%;
+	background-color: #000;
+	background-image: url(../img/rotate.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	opacity: 0.8;
+	overflow: hidden;
+	z-index: 9000;
+	display: none;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+	#orientationlock {
+		display: block;
+	}
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+	#orientationlock {
+		display: none;
+	}
+}
+
+/* Orientierung Ende */
+
+/* Loading Screen Start*/
+
+#loadingScreen {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 1024px;
+	height: 708px;
+	background-color: #fff;
+	background-image: url(../img/ajax-loader.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	overflow: hidden;
+	z-index: 9000;
+	display: block;
+}
+
+/* Loading Screen Ende */
+
+.noiPadHighlight{
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+
+a{
+	color: #333333;
+}
+p{
+  font-family: 'SZText', Arial, Helvetica;  
+}
+
+
+body {
+	margin: 0px;
+	color: #333;
+	font-size: 15px;
+	font-family: 'SZSans', Arial, Helvetica;
+	overflow: hidden;
+	background-color: #FFFFFF;
+}
+
+#infografics {
+	width: 1004px;
+	height: 708px;
+	border: 1px solid #e8e8e8;
+	overflow: hidden;
+	padding: 10px;
+}
+
+#infografics #header{
+	height: 55px;
+	width: 100%;
+	border-bottom: 1px solid #cccccc;
+	margin-bottom: 10px;
+}
+
+#infografics #header h1{
+	font-size: 34px;
+	margin: 10px 0 0 8px;
+}
+
+.candidate {
+	background-repeat: no-repeat;
+	left: 50px;
+	position: absolute;
+	top: 120px;
+	width: 578px;
+	height: 578px;
+	display: none;
+}
+
+.candidate .candidateImage{
+	width: 135px;
+	height: 135px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	position: absolute;
+	cursor: pointer;
+}
+
+#scroller_info {
+	position: absolute;
+	right: 20px;
+	top: 93px;
+}
+
+
+#info div.contentImage{
+	width: 93px;
+	height: 130px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	float: left;
+	margin: 0 15px 12px 0;
+}
+
+#info #heading{
+	font-size: 23px;
+	font-weight: bold;
+	margin-top: 0px;
+	 margin-bottom: -5px;
+}
+
+#info p#text{
+	font-size: 16px;
+	line-height: 18px;
+}
+
+
+.clear {
+	clear: both;
+}
+
+.counselor {
+	position: absolute;
+	top: 200px;
+	left: 200px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.counselorImage {
+	width: 90px;
+	height: 98px;
+	top: 0;
+	overflow: hidden;
+	position: absolute;
+}
+
+.counselorImageBox {
+	background-image: url(../img/grafics/councelor/hillary_clinton.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 90px;
+	height: 91px;
+	position: relative;
+	cursor: pointer;
+}
+
+.counselorText {
+	width: auto;
+	height: auto;
+	overflow: hidden;
+	position: absolute;
+	left: 35px;
+	top: 20px;
+	display: none;
+/*	box-shadow: 2px 2px 2px #888888;
+	-moz-box-shadow: 2px 2px 2px #888888;
+	-webkit-box-shadow: 2px 2px 2px #888888;
+	-ms-box-shadow: 2px 2px 2px #888888;*/
+}
+
+.counselorTextBox {
+	background: white;
+	height: auto;
+	width: auto;
+	cursor: pointer;
+	position: relative;
+	white-space: nowrap;
+	border: 1px solid #DDDDDD;
+	left: -100%;
+				
+}
+.counselorTextBox p {
+	margin: 0;
+	line-height: 16px;
+	padding: 10px;
+	padding-left: 55px;
+
+}
+
+.top {
+	z-index: 2000;
+}
+.bottom {
+	z-index: 1000;
+}
+#navi{
+    
+}

@@ -1,0 +1,29 @@
+.scroller_wrapper {
+	overflow: hidden;
+	position: relative;
+	padding: 0px;
+	clear: both;
+}
+
+.scroller_bar {
+	border-radius: 5px;
+	position: absolute;
+	top: 0px;
+	right: 1px;
+}
+
+.scroll_content {
+	margin: 0px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.unselectable {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
